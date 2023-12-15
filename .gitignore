@@ -1,1 +1,4 @@
+# Shuttle Christmas Code Challenge 2023 - gitignore file
+
 /target
+/server/target

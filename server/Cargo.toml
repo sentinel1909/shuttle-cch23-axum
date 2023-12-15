@@ -1,0 +1,23 @@
+[package]
+name = "shuttle-cch23-actixweb"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "shuttle-cch23-actixweb"
+path = "src/bin/httpd.rs"
+
+[lib]
+name = "shuttle_cch23_actixweb"
+path = "src/lib/lib.rs" 
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+minus1 = { path = "../minus1" }
+actix-web = "4.4.0"
+shuttle-actix-web = "0.35.1"
+shuttle-runtime = "0.35.1"
+
+[dev-dependencies]
+
