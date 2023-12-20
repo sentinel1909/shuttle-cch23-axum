@@ -1,7 +1,9 @@
 [workspace]
 members = [
     "server",
+    "domain",
     "minus1",
+    "day12",
 ]
 
 resolver = "2"

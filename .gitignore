@@ -1,4 +1,6 @@
 # Shuttle Christmas Code Challenge 2023 - gitignore file
 
+.shuttle-storage
+
 /target
 /server/target

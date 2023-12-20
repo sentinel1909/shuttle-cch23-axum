@@ -1,6 +1,6 @@
 [package]
 name = "shuttle-cch23-axum"
-version = "0.1.0"
+version = "12.1.0"
 edition = "2021"
 
 [[bin]]
@@ -15,8 +15,11 @@ path = "src/lib/lib.rs"
 
 [dependencies]
 minus1 = { path = "../minus1" }
-axum = "0.6.20"
-shuttle-axum = "0.35.1"
+day12 = { path = "../day12" }
+domain = { path = "../domain" }
+axum = "0.7.2"
+shuttle-axum = { version = "0.35.1", default-features = false, features = [ "axum-0-7"] }
+shuttle-persist = "0.35.1"
 shuttle-runtime = "0.35.1"
 tokio = { version = "1.35.1", features = [ "full" ] }
 
