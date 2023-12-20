@@ -1,15 +1,13 @@
 // minus1/src/lib.rs
 
 // dependencies
-use actix_web::{get, HttpResponse, Responder};
+use axum::{http::StatusCode, response::IntoResponse};
 
 // index route
-#[get("/")]
-async fn root() -> impl Responder {
-    HttpResponse::Ok().finish()
+pub async fn root() -> impl IntoResponse {
+    StatusCode::OK
 }
 
-#[get("/-1/error")]
-async fn error() -> impl Responder {
-    HttpResponse::InternalServerError().finish()
+pub async fn error() -> impl IntoResponse {
+    StatusCode::INTERNAL_SERVER_ERROR
 }

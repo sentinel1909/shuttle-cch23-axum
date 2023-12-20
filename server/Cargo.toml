@@ -1,23 +1,24 @@
 [package]
-name = "shuttle-cch23-actixweb"
+name = "shuttle-cch23-axum"
 version = "0.1.0"
 edition = "2021"
 
 [[bin]]
-name = "shuttle-cch23-actixweb"
+name = "shuttle-cch23-axum"
 path = "src/bin/httpd.rs"
 
 [lib]
-name = "shuttle_cch23_actixweb"
+name = "shuttle_cch23_axum"
 path = "src/lib/lib.rs" 
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 minus1 = { path = "../minus1" }
-actix-web = "4.4.0"
-shuttle-actix-web = "0.35.1"
+axum = "0.6.20"
+shuttle-axum = "0.35.1"
 shuttle-runtime = "0.35.1"
+tokio = { version = "1.35.1", features = [ "full" ] }
 
 [dev-dependencies]
 

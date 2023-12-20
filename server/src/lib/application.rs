@@ -1,21 +1,14 @@
-// src/lib/configuration.rs
+// src/lib/application.rs
 
 // dependencies
-use actix_web::web::{self, ServiceConfig};
-use minus1::{error, root};
-use shuttle_actix_web::ShuttleActixWeb;
+use axum::{routing::get, Router};
+use minus1_endpoints::{error, root};
 
-// configuration
-pub fn configure_services(cfg: &mut ServiceConfig) {
-    cfg.service(web::scope("").service(root).service(error));
-}
+// function to spin up the axum server and routes
+pub fn start_axum_service() -> shuttle_axum::ShuttleAxum {
+    let router = Router::new()
+        .route("/", get(root))
+        .route("/-1/error", get(error));
 
-// startup
-pub fn startup_service() -> ShuttleActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static>
-{
-    let config = move |cfg: &mut ServiceConfig| {
-        configure_services(cfg);
-    };
-
-    Ok(config.into())
+    Ok(router.into())
 }

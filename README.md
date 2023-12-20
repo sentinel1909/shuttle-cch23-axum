@@ -1,3 +1,7 @@
-# Shuttle Christmas Code Hunt 2023 - Actix Web Edition
+# Shuttle Christmas Code Hunt 2023 - Axum Edition
 
-I've re-started the Christmas Code Hunt using the Actix Web framework. The going got too tough with Tower and Hyper.
+I've re-started the Christmas Code Hunt using the Axum Web framework.
+
+## 2023-12-19
+- quickly re-built the minus1 challenge endpoints
+- validated them successfully against cch23-validator

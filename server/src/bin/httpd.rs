@@ -1,11 +1,10 @@
 // server/src/bin/httpd.rs
 
 // dependencies
-use actix_web::web::ServiceConfig;
-use shuttle_actix_web::ShuttleActixWeb;
-use shuttle_cch23_actixweb::application::startup_service;
+use shuttle_cch23_axum::application::start_axum_service;
 
+// main shuttle runtime
 #[shuttle_runtime::main]
-async fn main() -> ShuttleActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
-    startup_service()
+async fn main() -> shuttle_axum::ShuttleAxum {
+    start_axum_service()
 }
