@@ -4,11 +4,13 @@
 use axum::{body::Body, response::IntoResponse, response::Response};
 use serde::{Deserialize, Serialize};
 use shuttle_persist::PersistInstance;
+use sqlx::PgPool;
 
 // struct to represent the application state
 #[derive(Clone, Debug)]
 pub struct AppState {
     pub persist: PersistInstance,
+    pub pool: PgPool,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]

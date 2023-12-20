@@ -23,15 +23,16 @@ pub async fn timekeeper_get(
     Path(packet_id): Path<String>,
     State(state): State<AppState>,
 ) -> Result<TimeData, String> {
-    
     let time_loaded = get_time_in_seconds().to_owned().unwrap();
-    
+
     let result: TimeData = match state.persist.load(&packet_id) {
         Ok(time) => time,
         Err(error) => return Err(format!("Error: {}", error)),
     };
 
-    let time_difference: TimeData = TimeData { stamp: time_loaded - result.stamp };
+    let time_difference: TimeData = TimeData {
+        stamp: time_loaded - result.stamp,
+    };
 
     Ok(time_difference)
 }
@@ -42,7 +43,9 @@ pub async fn timekeeper_post(
     Path(packet_id): Path<String>,
     State(state): State<AppState>,
 ) -> Result<String, String> {
-    let time_saved = TimeData { stamp: get_time_in_seconds().to_owned().unwrap() };
+    let time_saved = TimeData {
+        stamp: get_time_in_seconds().to_owned().unwrap(),
+    };
 
     let result = match state.persist.save(&packet_id, time_saved.stamp) {
         Ok(_) => "Successfully saved the timestamp assocated with the incoming packet".to_string(),

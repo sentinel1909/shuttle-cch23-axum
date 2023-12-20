@@ -4,6 +4,7 @@ members = [
     "domain",
     "minus1",
     "day12",
+    "day13",
 ]
 
 resolver = "2"
