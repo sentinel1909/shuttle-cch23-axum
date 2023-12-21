@@ -5,6 +5,7 @@ use axum::{
     routing::{get, post},
     Router,
 };
+use day11_endpoints::static_file_get;
 use day12_endpoints::{timekeeper_get, timekeeper_post};
 use day13_endpoints::select_20231213;
 use domain::AppState;
@@ -30,6 +31,7 @@ pub async fn start_axum_service(
     let router = Router::new()
         .route("/", get(root))
         .route("/-1/error", get(error))
+        .route("/11/assets/decoration.png", get(static_file_get))
         .route("/12/save/:packet_id", post(timekeeper_post))
         .route("/12/load/:packet_id", get(timekeeper_get))
         .route("/13/sql", get(select_20231213))

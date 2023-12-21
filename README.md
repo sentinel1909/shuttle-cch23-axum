@@ -12,3 +12,4 @@ I've re-started the Christmas Code Hunt using the Axum Web framework.
 - stubbed out the /13/sql endpoint
 - added database pool to application state
 - added shuttle_shared_db and sqlx to dependencies
+- completed Task 1, validated successfully with cch23-validator

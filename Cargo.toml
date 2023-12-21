@@ -2,7 +2,9 @@
 members = [
     "server",
     "domain",
+    "errors",
     "minus1",
+    "day11",
     "day12",
     "day13",
 ]

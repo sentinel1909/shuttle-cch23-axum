@@ -497,6 +497,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "day11"
+version = "0.1.0"
+dependencies = [
+ "axum 0.7.2",
+ "axum-macros",
+ "domain",
+ "errors",
+]
+
+[[package]]
 name = "day12"
 version = "12.1.0"
 dependencies = [
@@ -507,7 +517,12 @@ dependencies = [
 
 [[package]]
 name = "day13"
-version = "0.1.0"
+version = "13.1.0"
+dependencies = [
+ "axum 0.7.2",
+ "domain",
+ "sqlx",
+]
 
 [[package]]
 name = "der"
@@ -549,9 +564,10 @@ checksum = "fea41bba32d969b513997752735605054bc0dfa92b4c56bf1189f2e174be7a10"
 
 [[package]]
 name = "domain"
-version = "12.1.0"
+version = "13.1.0"
 dependencies = [
  "axum 0.7.2",
+ "errors",
  "serde",
  "shuttle-persist",
  "sqlx",
@@ -586,6 +602,13 @@ checksum = "a258e46cdc063eb8519c00b9fc845fc47bcfca4130e2f08e88665ceda8474245"
 dependencies = [
  "libc",
  "windows-sys 0.52.0",
+]
+
+[[package]]
+name = "errors"
+version = "13.1.0"
+dependencies = [
+ "axum 0.7.2",
 ]
 
 [[package]]
@@ -2127,12 +2150,14 @@ dependencies = [
 
 [[package]]
 name = "shuttle-cch23-axum"
-version = "12.1.0"
+version = "13.1.0"
 dependencies = [
  "axum 0.7.2",
+ "day11",
  "day12",
  "day13",
  "domain",
+ "errors",
  "minus1",
  "shuttle-axum",
  "shuttle-persist",
