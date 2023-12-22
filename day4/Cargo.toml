@@ -1,0 +1,15 @@
+[package]
+name = "day4"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "day4_endpoints"
+path = "src/lib.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = { version = "0.7.2", features = [ "json" ] }
+domain = { path = "../domain" }
+serde_json = "1.0.108"

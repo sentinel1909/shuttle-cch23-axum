@@ -497,6 +497,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "day1"
+version = "0.1.0"
+dependencies = [
+ "axum 0.7.2",
+ "axum-macros",
+]
+
+[[package]]
 name = "day11"
 version = "0.1.0"
 dependencies = [
@@ -522,6 +530,15 @@ dependencies = [
  "axum 0.7.2",
  "domain",
  "sqlx",
+]
+
+[[package]]
+name = "day4"
+version = "0.1.0"
+dependencies = [
+ "axum 0.7.2",
+ "domain",
+ "serde_json",
 ]
 
 [[package]]
@@ -2153,9 +2170,11 @@ name = "shuttle-cch23-axum"
 version = "13.1.0"
 dependencies = [
  "axum 0.7.2",
+ "day1",
  "day11",
  "day12",
  "day13",
+ "day4",
  "domain",
  "errors",
  "minus1",

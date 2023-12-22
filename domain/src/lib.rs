@@ -19,6 +19,27 @@ pub struct AppState {
     pub pool: PgPool,
 }
 
+// struct to represent the sled data, per the day 4, part 1 challenge
+#[derive(Clone, Deserialize, Debug, Serialize)]
+pub struct StrengthData {
+    pub name: String,
+    pub strength: i32,
+}
+
+// struct to represent the contest data, per the day 4, part 1 challenge
+#[derive(Clone, Deserialize, Debug, Serialize)]
+pub struct ContestData {
+    pub name: String,
+    pub strength: i32,
+    pub speed: f32,
+    pub height: i32,
+    pub antler_width: i32,
+    pub snow_magic_power: i32,
+    pub favorite_food: String,
+    #[serde(rename = "cAnD13s_3ATeN-yesT3rdAy")]
+    pub candies_eaten_yesterday: i32,
+}
+
 // implement the FromRef trait for a PersistInstance
 impl FromRef<AppState> for PersistInstance {
     fn from_ref(app_state: &AppState) -> Self {

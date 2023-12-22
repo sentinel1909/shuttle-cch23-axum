@@ -5,6 +5,8 @@ use axum::{
     routing::{get, post},
     Router,
 };
+use day1_endpoints::calibrate_ids;
+use day4_endpoints::calculate_total_strength;
 use day11_endpoints::static_file_get;
 use day12_endpoints::{timekeeper_get, timekeeper_post};
 use day13_endpoints::select_20231213;
@@ -31,6 +33,8 @@ pub async fn start_axum_service(
     let router = Router::new()
         .route("/", get(root))
         .route("/-1/error", get(error))
+        .route("/1/*nums", get(calibrate_ids))
+        .route("/4/strength", post(calculate_total_strength))
         .route("/11/assets/decoration.png", get(static_file_get))
         .route("/12/save/:packet_id", post(timekeeper_post))
         .route("/12/load/:packet_id", get(timekeeper_get))

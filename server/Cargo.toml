@@ -15,6 +15,8 @@ path = "src/lib/lib.rs"
 
 [dependencies]
 minus1 = { path = "../minus1" }
+day1 = { path = "../day1" }
+day4 = { path = "../day4" }
 day11 = { path = "../day11" }
 day12 = { path = "../day12" }
 day13 = { path = "../day13" }
