@@ -40,6 +40,15 @@ pub struct ContestData {
     pub candies_eaten_yesterday: i32,
 }
 
+// struct to represent the contest result, per the day 4, part 2 challenge
+#[derive(Clone, Deserialize, Debug, Serialize)]
+pub struct ContestResult {
+    pub fastest: String,
+    pub tallest: String,
+    pub magician: String,
+    pub consumer: String,
+}
+
 // implement the FromRef trait for a PersistInstance
 impl FromRef<AppState> for PersistInstance {
     fn from_ref(app_state: &AppState) -> Self {

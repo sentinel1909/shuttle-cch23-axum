@@ -5,11 +5,11 @@ use axum::{
     routing::{get, post},
     Router,
 };
-use day1_endpoints::calibrate_ids;
-use day4_endpoints::calculate_total_strength;
 use day11_endpoints::static_file_get;
 use day12_endpoints::{timekeeper_get, timekeeper_post};
 use day13_endpoints::select_20231213;
+use day1_endpoints::calibrate_ids;
+use day4_endpoints::calculate_total_strength;
 use domain::AppState;
 use minus1_endpoints::{error, root};
 use shuttle_persist::PersistInstance;

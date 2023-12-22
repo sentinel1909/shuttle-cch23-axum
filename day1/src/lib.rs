@@ -37,6 +37,10 @@ pub async fn calibrate_ids(Path(packets): Path<String>) -> impl IntoResponse {
         }
 
         // respond with a bad request if neither route is matched
-        _ => (StatusCode::BAD_REQUEST, "Too many packets! Enter 20 or less to calibrate the sled id!").into_response(),
+        _ => (
+            StatusCode::BAD_REQUEST,
+            "Too many packets! Enter 20 or less to calibrate the sled id!",
+        )
+            .into_response(),
     }
 }
