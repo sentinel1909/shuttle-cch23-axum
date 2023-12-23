@@ -9,7 +9,9 @@ use day11_endpoints::static_file_get;
 use day12_endpoints::{timekeeper_get, timekeeper_post};
 use day13_endpoints::select_20231213;
 use day1_endpoints::calibrate_ids;
-use day4_endpoints::calculate_total_strength;
+use day4_endpoints::{calculate_total_strength, get_contest_results};
+use day5_endpoints::slice_the_loop;
+use day6_endpoints::count_elves;
 use domain::AppState;
 use minus1_endpoints::{error, root};
 use shuttle_persist::PersistInstance;
@@ -35,6 +37,9 @@ pub async fn start_axum_service(
         .route("/-1/error", get(error))
         .route("/1/*nums", get(calibrate_ids))
         .route("/4/strength", post(calculate_total_strength))
+        .route("/4/contest", post(get_contest_results))
+        .route("/5", post(slice_the_loop))
+        .route("/6", post(count_elves))
         .route("/11/assets/decoration.png", get(static_file_get))
         .route("/12/save/:packet_id", post(timekeeper_post))
         .route("/12/load/:packet_id", get(timekeeper_get))

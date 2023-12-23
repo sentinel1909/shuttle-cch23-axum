@@ -49,6 +49,21 @@ pub struct ContestResult {
     pub consumer: String,
 }
 
+#[derive(Clone, Deserialize, Debug, Serialize)]
+pub struct Slice {
+    pub offset: usize,
+    pub limit: usize,
+}
+
+#[derive(Clone, Deserialize, Debug, Serialize)]
+pub struct ElfResponse {
+    pub elf: usize,
+    #[serde(rename = "elf on a shelf")]
+    pub elf_on_a_shelf: usize,
+    #[serde(rename = "shelf with no elf on it")]
+    pub shelf_with_no_elf_on_it: usize,
+}
+
 // implement the FromRef trait for a PersistInstance
 impl FromRef<AppState> for PersistInstance {
     fn from_ref(app_state: &AppState) -> Self {
