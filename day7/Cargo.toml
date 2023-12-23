@@ -1,0 +1,17 @@
+[package]
+name = "day7"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "day7_endpoints"
+path = "src/lib.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = "0.7.2"
+axum-extra = { version = "0.9.0", features = [ "typed-header" ] }
+axum-macros = "0.4.0"
+base64 = "0.21.5"
+domain = { path = "../domain" }

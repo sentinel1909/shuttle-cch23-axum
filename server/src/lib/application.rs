@@ -12,6 +12,7 @@ use day1_endpoints::calibrate_ids;
 use day4_endpoints::{calculate_total_strength, get_contest_results};
 use day5_endpoints::slice_the_loop;
 use day6_endpoints::count_elves;
+use day7_endpoints::decode_the_receipe;
 use domain::AppState;
 use minus1_endpoints::{error, root};
 use shuttle_persist::PersistInstance;
@@ -40,6 +41,7 @@ pub async fn start_axum_service(
         .route("/4/contest", post(get_contest_results))
         .route("/5", post(slice_the_loop))
         .route("/6", post(count_elves))
+        .route("/7/decode", get(decode_the_receipe))
         .route("/11/assets/decoration.png", get(static_file_get))
         .route("/12/save/:packet_id", post(timekeeper_post))
         .route("/12/load/:packet_id", get(timekeeper_get))
