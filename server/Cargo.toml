@@ -25,11 +25,11 @@ day12 = { path = "../day12" }
 day13 = { path = "../day13" }
 domain = { path = "../domain" }
 errors = { path = "../errors" }
-axum = "0.7.2"
-shuttle-axum = { version = "0.35.1", default-features = false, features = [ "axum-0-7"] }
-shuttle-persist = "0.35.1"
-shuttle-runtime = "0.35.1"
-shuttle-shared-db = { version = "0.35.1", features = [ "postgres" ] }
+axum = "0.7.3"
+shuttle-axum = "0.36.0"
+shuttle-persist = "0.36.0"
+shuttle-runtime = "0.36.0"
+shuttle-shared-db = { version = "0.36.0", features = [ "postgres" ] }
 sqlx = { version = "0.7.3", features = [ "runtime-tokio-native-tls", "postgres" ] }
 tokio = { version = "1.35.1", features = [ "full" ] }
 
