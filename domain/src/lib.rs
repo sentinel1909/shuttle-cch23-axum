@@ -94,7 +94,7 @@ impl IntoResponse for Image {
     }
 }
 
-#[derive(Debug, Clone, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct TimeData {
     pub stamp: u64,
 }
@@ -104,4 +104,10 @@ impl IntoResponse for TimeData {
     fn into_response(self) -> Response {
         Response::new(Body::from(self.stamp.to_string()))
     }
+}
+
+// struct to represent the weight of a Pokemon, per the day 8, part 1 challenge
+#[derive(Clone, Deserialize, Debug, Serialize)]
+pub struct PokemonWeight {
+    pub weight: f32,
 }
