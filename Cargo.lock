@@ -1162,6 +1162,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "hyper-rustls"
+version = "0.24.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ec3efd23720e2049821a693cbc7e65ea87c72f1c58ff2f9522ff332b1491e590"
+dependencies = [
+ "futures-util",
+ "http 0.2.11",
+ "hyper 0.14.28",
+ "rustls",
+ "tokio",
+ "tokio-rustls",
+]
+
+[[package]]
 name = "hyper-timeout"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2069,6 +2083,7 @@ dependencies = [
  "http 0.2.11",
  "http-body 0.4.6",
  "hyper 0.14.28",
+ "hyper-rustls",
  "hyper-tls",
  "ipnet",
  "js-sys",
@@ -2078,17 +2093,21 @@ dependencies = [
  "once_cell",
  "percent-encoding",
  "pin-project-lite",
+ "rustls",
+ "rustls-pemfile",
  "serde",
  "serde_json",
  "serde_urlencoded",
  "system-configuration",
  "tokio",
  "tokio-native-tls",
+ "tokio-rustls",
  "tower-service",
  "url",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
+ "webpki-roots",
  "winreg",
 ]
 
@@ -2152,6 +2171,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "rustls"
+version = "0.21.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f9d5a6813c0759e4609cd494e8e725babae6a2ca7b62a5536a13daaec6fcb7ba"
+dependencies = [
+ "log",
+ "ring",
+ "rustls-webpki",
+ "sct",
+]
+
+[[package]]
+name = "rustls-pemfile"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1c74cae0a4cf6ccbbf5f359f08efdf8ee7e1dc532573bf0db71968cb56b1448c"
+dependencies = [
+ "base64",
+]
+
+[[package]]
+name = "rustls-webpki"
+version = "0.101.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8b6275d1ee7a1cd780b64aca7726599a1dbc893b1e64144529e55c3c2f745765"
+dependencies = [
+ "ring",
+ "untrusted",
+]
+
+[[package]]
 name = "rustrict"
 version = "0.7.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2194,6 +2244,16 @@ name = "scopeguard"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
+
+[[package]]
+name = "sct"
+version = "0.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "da046153aa2352493d6cb7da4b6e5c0c057d8a1d0a9aa8560baffdd945acd414"
+dependencies = [
+ "ring",
+ "untrusted",
+]
 
 [[package]]
 name = "security-framework"
@@ -2313,9 +2373,9 @@ dependencies = [
 
 [[package]]
 name = "shuttle-axum"
-version = "0.36.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b1037680b94f73044b9205ec27cd6fc8018ca0b8aebb707ef15191965ff3ebd1"
+checksum = "2a42e585a82fd22ab49d88e7f1ff7688e37da0c6c25cb1dce2e2594a584dbf2f"
 dependencies = [
  "axum 0.7.4",
  "shuttle-runtime",
@@ -2348,9 +2408,9 @@ dependencies = [
 
 [[package]]
 name = "shuttle-codegen"
-version = "0.36.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "032ec76ecb7e3698d7a9e836e3649a88faa13e53f4d13eaa314030761f4ecac9"
+checksum = "1deb164f8f4040aca50e2462d2a0e6ff72acf51dbe58a598032f1da620b79abc"
 dependencies = [
  "proc-macro-error",
  "proc-macro2",
@@ -2360,9 +2420,9 @@ dependencies = [
 
 [[package]]
 name = "shuttle-common"
-version = "0.36.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e8e3ddec998dd953743ac0e47de7ae6d65fcb1ffc45e68a4ceecd2558f8cad1b"
+checksum = "530dd92ef335d91dcb77bda0d6afea7dc3c455ac6945c9f9ccebc5226bb6b9af"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2382,6 +2442,7 @@ dependencies = [
  "opentelemetry-otlp",
  "opentelemetry_sdk",
  "pin-project",
+ "reqwest",
  "rustrict",
  "semver",
  "serde",
@@ -2404,9 +2465,9 @@ dependencies = [
 
 [[package]]
 name = "shuttle-persist"
-version = "0.36.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4068c7b0da21eedf0295048907a7388d12f18857acaac02deeb0072464783323"
+checksum = "4ae26a117845847a8a93d367c7cf3b7ca452eb1a107521d821d9c3238167e54c"
 dependencies = [
  "async-trait",
  "bincode",
@@ -2417,9 +2478,9 @@ dependencies = [
 
 [[package]]
 name = "shuttle-proto"
-version = "0.36.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1ff4e554df686fb01ce42636bf768ba902800934ba4e22f5a5d96082f608d325"
+checksum = "95532371eb7055651f4cb937b0e6522c75f9eb531e19b62b7428a05505574ba9"
 dependencies = [
  "futures-core",
  "prost 0.12.3",
@@ -2430,9 +2491,9 @@ dependencies = [
 
 [[package]]
 name = "shuttle-runtime"
-version = "0.36.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cd4e48b0112dc1ba7ae056197810808a27948a7352340506f355da7e4bdc6cb4"
+checksum = "96222129180f38195d65bb65813ed5a3d72c351492c5f340c1c26e5e71e82088"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2456,23 +2517,24 @@ dependencies = [
 
 [[package]]
 name = "shuttle-service"
-version = "0.36.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "809db2a4b8511b07f363942737459bb4ec4f859d9adac7759c52677beabe9af4"
+checksum = "778d4684362e19634d7124c3efbf08716e247d2c48498b5ad3cc03f53b23f08a"
 dependencies = [
  "anyhow",
  "async-trait",
  "serde",
  "shuttle-common",
+ "shuttle-proto",
  "strfmt",
  "thiserror",
 ]
 
 [[package]]
 name = "shuttle-shared-db"
-version = "0.36.0"
+version = "0.38.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81fbf377957afb7c9a5b74b13a897c466252e46f6e78a4ae48b9fe2282baacdd"
+checksum = "a8d346d6d279774628ddb074cb0749a26b53a6f8b97df7ba75c0ad9c6f0f4a05"
 dependencies = [
  "async-trait",
  "serde",
@@ -2635,6 +2697,8 @@ dependencies = [
  "once_cell",
  "paste",
  "percent-encoding",
+ "rustls",
+ "rustls-pemfile",
  "serde",
  "serde_json",
  "sha2",
@@ -2645,6 +2709,7 @@ dependencies = [
  "tokio-stream",
  "tracing",
  "url",
+ "webpki-roots",
 ]
 
 [[package]]
@@ -3044,6 +3109,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bbae76ab933c85776efabc971569dd6119c580d8f5d448769dec1764bf796ef2"
 dependencies = [
  "native-tls",
+ "tokio",
+]
+
+[[package]]
+name = "tokio-rustls"
+version = "0.24.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c28327cf380ac148141087fbfb9de9d7bd4e84ab5d2c28fbc911d753de8a7081"
+dependencies = [
+ "rustls",
  "tokio",
 ]
 
@@ -3490,6 +3565,12 @@ dependencies = [
  "js-sys",
  "wasm-bindgen",
 ]
+
+[[package]]
+name = "webpki-roots"
+version = "0.25.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5f20c57d8d7db6d3b86154206ae5d8fba62dd39573114de97c2cb0578251f8e1"
 
 [[package]]
 name = "whoami"
