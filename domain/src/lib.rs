@@ -51,8 +51,9 @@ pub struct ContestResult {
 
 #[derive(Clone, Deserialize, Debug, Serialize)]
 pub struct Slice {
-    pub offset: usize,
-    pub limit: usize,
+    pub offset: Option<usize>,
+    pub limit: Option<usize>,
+    pub split: Option<usize>,
 }
 
 #[derive(Clone, Deserialize, Debug, Serialize)]
