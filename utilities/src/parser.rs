@@ -2,10 +2,10 @@
 
 // dependencies
 use nom::bytes::complete::{take, tag};
-use nom::combinator::recognize;
+use nom::combinator::not;
 use nom::multi::many0;
 use nom::multi::many_till;
-use nom::sequence::{preceded, terminated};
+use nom::sequence::{preceded, tuple};
 use nom::IResult;
 
 // parser to look for the word "elf"
@@ -28,24 +28,23 @@ fn elf_on_a_shelf(input: &str) -> IResult<&str, &str> {
     preceded(elf_on_a, shelf)(input)
 }
 
-// parser to look for instances of the word "shelf" that are not preceded by the phrase "elf on a"
-fn shelf_no_elf(input: &str) -> IResult<&str, &str> {
-    recognize(terminated(elf_on_a, shelf))(input)
+fn shelf_no_elf(input: &str) -> IResult<&str, ()> {
+    not(elf_on_a_shelf)(input)
 }
 
-// combinator to parse the input string for instances of the word "elf"
+// function to parse the input string for instances of the word "elf"
 pub fn parse_elf(input: &str) -> IResult<&str, Vec<(Vec<&str>, &str)>> {
     many0(many_till(take(1usize), elf))(input)
 }
 
-// combinator to parse the input string for instances of the phrase "elf on a shelf"
+// function to parse the input string for instances of the phrase "elf on a shelf"
 pub fn parse_elf_on_a_shelf(input: &str) -> IResult<&str, Vec<(Vec<&str>, &str)>> {
     many0(many_till(take(1usize), elf_on_a_shelf))(input)
 }
 
-// combinator to parse the input string for instances of the word "shelf"
-pub fn parse_shelves_with_no_elves(input: &str) -> IResult<&str, Vec<(Vec<&str>, &str)>> {
-    many0(many_till(take(1usize), shelf_no_elf))(input)
+// function to parse the input string for instances of the word "shelf"
+pub fn parse_shelves_with_no_elves(input: &str) -> IResult<&str, Vec<(Vec<&str>, ((), &str))>> {
+    many0(many_till(take(1usize), tuple((shelf_no_elf, shelf))))(input)
 }
 
 #[cfg(test)]
