@@ -1,5 +1,9 @@
 # Shuttle Christmas Code Challenge 2023 - gitignore file
 
+.idea
+
+.vscode
+
 .shuttle-storage
 
 /target
