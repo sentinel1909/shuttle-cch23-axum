@@ -13,6 +13,6 @@ path = "src/lib.rs"
 axum = "0.7.3"
 errors = { path = "../errors" }
 serde = { version = "1.0.193", features = [ "derive" ] }
-shuttle-persist = "0.38.0"
+shuttle-persist = "0.39.0"
 sqlx = { version = "0.7.3", features = [ "postgres" ] }
 

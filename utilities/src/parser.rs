@@ -2,7 +2,6 @@
 
 // dependencies
 use nom::bytes::complete::{take, tag};
-use nom::combinator::not;
 use nom::multi::many0;
 use nom::multi::many_till;
 use nom::sequence::{preceded, terminated};
