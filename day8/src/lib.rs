@@ -6,7 +6,7 @@
 use axum::{
     extract::Path,
     http::StatusCode,
-    response::{Response, IntoResponse},
+    response::{IntoResponse, Response},
 };
 use axum_macros::debug_handler;
 use reqwest::{Client, Error};
@@ -15,7 +15,7 @@ use domain::PokemonWeight;
 
 // wrapper struct for a reqwest::Error
 pub struct ReqwestError {
-    pub inner: Error
+    pub inner: Error,
 }
 
 // implement the IntoResponse trait for ReqwestError
@@ -29,15 +29,15 @@ impl IntoResponse for ReqwestError {
 // implement the From trait for ReqwestError, converts a reqwest::Error to a ReqwestError type
 impl From<Error> for ReqwestError {
     fn from(error: Error) -> Self {
-        ReqwestError {
-            inner: error
-        }
+        ReqwestError { inner: error }
     }
 }
 
 // endpoint which returns the weight in kilograms of a Pokemnon
 #[debug_handler]
-pub async fn get_weight(Path(pokedex_number): Path<i32>) -> Result<impl IntoResponse, ReqwestError> {
+pub async fn get_weight(
+    Path(pokedex_number): Path<i32>,
+) -> Result<impl IntoResponse, ReqwestError> {
     // create a reqwest client
     let client = Client::new();
 

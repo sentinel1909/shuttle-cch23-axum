@@ -1,7 +1,7 @@
 // utilities/src/lib.rs
 
 // dependencies
-use nom::bytes::complete::{take, tag};
+use nom::bytes::complete::{tag, take};
 use nom::multi::many0;
 use nom::multi::many_till;
 use nom::sequence::{preceded, terminated};
